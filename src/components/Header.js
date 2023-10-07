@@ -3,9 +3,21 @@ import { Link, NavLink, useNavigate} from "react-router-dom";
 import Logo from "../assets/logo.svg";
 
 export const Header = () => {
-  const getDarkModeSettingFromDb = JSON.parse(localStorage.getItem("react_movie_mate_02")) || {};
-console.log(getDarkModeSettingFromDb);
-  const [darkMode, setDarkMode] = useState(getDarkModeSettingFromDb.length ? getDarkModeSettingFromDb.settings.darkMode : false);
+  const getDarkModeSettingFromDb = JSON.parse(localStorage.getItem("react_movie_mate_02"));
+  console.log(getDarkModeSettingFromDb);
+  function isEmpty(obj) {
+    for (const prop in obj) {
+      if (Object.hasOwn(obj, prop)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  const temp = isEmpty(getDarkModeSettingFromDb.settings.darkMode);
+  console.log(temp);
+
+  const [darkMode, setDarkMode] = useState(getDarkModeSettingFromDb ? getDarkModeSettingFromDb.settings.darkMode : false);
   const [hidden, setHidden] = useState(true);
 
   useEffect(() => {
