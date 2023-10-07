@@ -10,7 +10,7 @@ export const MovieDetail = () => {
   const url = `https://api.themoviedb.org/3/movie/${param.id}?api_key=${process.env.REACT_APP_API_KEY}`;
 
   const imagePath = movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : BackupImage;
-  console.log(process.env);
+
   useEffect(() => {
     async function fetchMovie() {
       document.body.classList.add("loading");

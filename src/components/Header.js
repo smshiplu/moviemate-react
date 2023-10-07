@@ -4,7 +4,7 @@ import Logo from "../assets/logo.svg";
 
 export const Header = () => {
   const getDarkModeSettingFromDb = JSON.parse(localStorage.getItem("react_movie_mate_02")) || {};
-
+console.log(getDarkModeSettingFromDb);
   const [darkMode, setDarkMode] = useState(getDarkModeSettingFromDb.length ? getDarkModeSettingFromDb.settings.darkMode : false);
   const [hidden, setHidden] = useState(true);
 
